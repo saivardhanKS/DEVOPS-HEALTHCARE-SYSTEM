@@ -1,22 +1,32 @@
+
 FROM nginx:alpine
 
-RUN rm -rf /usr/share/nginx/html/*
+# Create writable Nginx temporary directories for non-root execution
+RUN mkdir -p \
+    /var/cache/nginx/client_temp \
+    /var/cache/nginx/proxy_temp \
+    /var/cache/nginx/fastcgi_temp \
+    /var/cache/nginx/uwsgi_temp \
+    /var/cache/nginx/scgi_temp \
+    && chown -R 101:101 /var/cache/nginx \
+    && touch /tmp/nginx.pid \
+    && chown 101:101 /tmp/nginx.pid
 
-COPY index.html /usr/share/nginx/html/
-COPY style.css /usr/share/nginx/html/
-COPY script.js /usr/share/nginx/html/
+# Configure Nginx to use a writable PID file
+RUN sed -i 's#pid .*;#pid /tmp/nginx.pid;#' /etc/nginx/nginx.conf
 
-RUN mkdir -p /tmp/nginx/client_temp \
-    /tmp/nginx/proxy_temp \
-    /tmp/nginx/fastcgi_temp \
-    /tmp/nginx/uwsgi_temp \
-    /tmp/nginx/scgi_temp \
-    && chown -R 101:101 /tmp/nginx \
-    && chmod -R 700 /tmp/nginx
+# Copy healthcare frontend files
+COPY index.html /usr/share/nginx/html/index.html
+COPY style.css /usr/share/nginx/html/style.css
+COPY script.js /usr/share/nginx/html/script.js
 
-RUN sed -i 's|/var/cache/nginx/client_temp|/tmp/nginx/client_temp|g' /etc/nginx/nginx.conf \
-    && sed -i 's|/var/cache/nginx/proxy_temp|/tmp/nginx/proxy_temp|g' /etc/nginx/nginx.conf
+# Set frontend file permissions
+RUN chmod 644 /usr/share/nginx/html/index.html \
+    /usr/share/nginx/html/style.css \
+    /usr/share/nginx/html/script.js
 
+# Expose the Nginx HTTP port
 EXPOSE 80
 
+# Start Nginx in foreground
 CMD ["nginx", "-g", "daemon off;"]
