@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MedCare Plus — A comprehensive healthcare management system providing world-class medical services, online appointments, patient portal, and 24/7 emergency care.">
+    <title>MedCare Plus | Healthcare Management System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Ambient background -->
+    <div class="ambient-bg">
+        <div class="ambient-orb orb-1"></div>
+        <div class="ambient-orb orb-2"></div>
+        <div class="ambient-orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <div class="logo-mark">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <rect x="2" y="2" width="28" height="28" rx="8" fill="url(#logoGrad)"/>
+                        <path d="M16 8v16M8 16h16" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="logoGrad" x1="2" y1="2" x2="30" y2="30">
+                                <stop stop-color="#06b6d4"/>
+                                <stop offset="1" stop-color="#3b82f6"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span class="logo-text">Med<span class="logo-accent">Care</span> Plus</span>
+            </a>
+            <ul class="nav-links" id="navMenu">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#departments" class="nav-link">Departments</a></li>
+                <li><a href="#doctors" class="nav-link">Doctors</a></li>
+                <li><a href="#patient-portal" class="nav-link">Patient Portal</a></li>
+                <li><a href="#appointments" class="nav-link">Appointments</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#appointments" class="btn btn-nav">Book Appointment</a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section id="hero" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge anim-fade-up">
+                    <span class="badge-pulse"></span>
+                    24/7 Emergency Care Available
+                </div>
+                <h1 class="hero-title anim-fade-up d1">
+                    Your Health,<br>
+                    Our <span class="gradient-text">Priority</span>
+                </h1>
+                <p class="hero-desc anim-fade-up d2">
+                    Experience world-class healthcare with compassionate doctors, 
+                    advanced diagnostics, and seamless digital health services — all under one roof.
+                </p>
+                <div class="hero-btns anim-fade-up d3">
+                    <a href="#appointments" class="btn btn-primary">
+                        <span>Book Appointment</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="#services" class="btn btn-outline">Our Services</a>
+                </div>
+                <div class="hero-highlights anim-fade-up d4">
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🏥</div>
+                        <div>
+                            <strong>500+</strong>
+                            <span>Hospital Beds</span>
+                        </div>
+                    </div>
+                    <div class="highlight-divider"></div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">👨‍⚕️</div>
+                        <div>
+                            <strong>120+</strong>
+                            <span>Expert Doctors</span>
+                        </div>
+                    </div>
+                    <div class="highlight-divider"></div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🏆</div>
+                        <div>
+                            <strong>50K+</strong>
+                            <span>Patients Served</span>
+                        </div>
+                    </div>
+                    <div class="highlight-divider"></div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">⭐</div>
+                        <div>
+                            <strong>4.9/5</strong>
+                            <span>Patient Rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual anim-fade-up d3">
+                <div class="hero-card-stack">
+                    <div class="hero-float-card card-vitals">
+                        <div class="float-card-header">
+                            <span class="fc-dot green"></span>
+                            Patient Vitals
+                        </div>
+                        <div class="vitals-grid">
+                            <div class="vital">
+                                <span class="vital-label">Heart Rate</span>
+                                <span class="vital-value">72 <small>bpm</small></span>
+                                <div class="vital-bar"><div class="vb-fill" style="--w:72%"></div></div>
+                            </div>
+                            <div class="vital">
+                                <span class="vital-label">Blood Pressure</span>
+                                <span class="vital-value">120/80</span>
+                                <div class="vital-bar"><div class="vb-fill good" style="--w:65%"></div></div>
+                            </div>
+                            <div class="vital">
+                                <span class="vital-label">SpO2</span>
+                                <span class="vital-value">98<small>%</small></span>
+                                <div class="vital-bar"><div class="vb-fill" style="--w:98%"></div></div>
+                            </div>
+                            <div class="vital">
+                                <span class="vital-label">Temperature</span>
+                                <span class="vital-value">98.6<small>°F</small></span>
+                                <div class="vital-bar"><div class="vb-fill good" style="--w:50%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-float-card card-appointment">
+                        <div class="float-card-header">
+                            <span class="fc-dot blue"></span>
+                            Next Appointment
+                        </div>
+                        <div class="appt-info">
+                            <div class="appt-doc">
+                                <div class="appt-avatar">DR</div>
+                                <div>
+                                    <strong>Dr. Sarah Johnson</strong>
+                                    <span>Cardiologist</span>
+                                </div>
+                            </div>
+                            <div class="appt-time">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                                Today, 2:30 PM
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-float-card card-notification">
+                        <div class="notif-row">
+                            <span class="notif-icon">💊</span>
+                            <div>
+                                <strong>Medication Reminder</strong>
+                                <span>Take Aspirin 75mg — 8:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SERVICES ==================== -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Services</span>
+                <h2 class="section-title">Comprehensive <span class="gradient-text">Medical Services</span></h2>
+                <p class="section-desc">From preventive care to complex surgeries, we offer a full spectrum of healthcare services with cutting-edge technology.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-anim="up">
+                    <div class="svc-icon" style="--c:#ef4444">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <h3>Emergency Care</h3>
+                    <p>24/7 emergency department with trauma center, rapid triage, and critical care units staffed by board-certified emergency physicians.</p>
+                    <ul class="svc-features">
+                        <li>24/7 Trauma Center</li>
+                        <li>Air Ambulance Service</li>
+                        <li>Rapid Response Team</li>
+                    </ul>
+                    <a href="#appointments" class="svc-link">Learn More →</a>
+                </div>
+                <div class="service-card" data-anim="up">
+                    <div class="svc-icon" style="--c:#f97316">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </div>
+                    <h3>Cardiology</h3>
+                    <p>Advanced cardiac care with catheterization labs, echocardiography, stress testing, and open-heart surgery capabilities.</p>
+                    <ul class="svc-features">
+                        <li>Interventional Cardiology</li>
+                        <li>Cardiac Rehabilitation</li>
+                        <li>Pacemaker Implantation</li>
+                    </ul>
+                    <a href="#appointments" class="svc-link">Learn More →</a>
+                </div>
+                <div class="service-card" data-anim="up">
+                    <div class="svc-icon" style="--c:#8b5cf6">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                    </div>
+                    <h3>Neurology</h3>
+                    <p>Comprehensive neurological services including brain & spine surgery, stroke care, epilepsy treatment, and neuroimaging.</p>
+                    <ul class="svc-features">
+                        <li>Stroke Center</li>
+                        <li>Brain & Spine Surgery</li>
+                        <li>EEG & EMG Testing</li>
+                    </ul>
+                    <a href="#appointments" class="svc-link">Learn More →</a>
+                </div>
+                <div class="service-card" data-anim="up">
+                    <div class="svc-icon" style="--c:#06b6d4">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                    </div>
+                    <h3>Diagnostics & Lab</h3>
+                    <p>State-of-the-art diagnostic center with MRI, CT scan, X-ray, ultrasound, and a fully automated pathology laboratory.</p>
+                    <ul class="svc-features">
+                        <li>MRI & CT Imaging</li>
+                        <li>Blood Test Reports in 2hrs</li>
+                        <li>Online Report Access</li>
+                    </ul>
+                    <a href="#appointments" class="svc-link">Learn More →</a>
+                </div>
+                <div class="service-card" data-anim="up">
+                    <div class="svc-icon" style="--c:#10b981">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 14l2 2 4-4"/></svg>
+                    </div>
+                    <h3>Health Checkups</h3>
+                    <p>Preventive health screening packages for individuals and corporates — full body checkup, executive health plans, and wellness programs.</p>
+                    <ul class="svc-features">
+                        <li>Full Body Checkup</li>
+                        <li>Executive Health Plan</li>
+                        <li>Corporate Wellness</li>
+                    </ul>
+                    <a href="#appointments" class="svc-link">Learn More →</a>
+                </div>
+                <div class="service-card" data-anim="up">
+                    <div class="svc-icon" style="--c:#ec4899">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Mother & Child Care</h3>
+                    <p>Complete maternity and pediatric care with NICU facilities, painless delivery options, and child vaccination programs.</p>
+                    <ul class="svc-features">
+                        <li>Painless Delivery</li>
+                        <li>Level III NICU</li>
+                        <li>Child Vaccination</li>
+                    </ul>
+                    <a href="#appointments" class="svc-link">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DEPARTMENTS ==================== -->
+    <section id="departments" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Departments</span>
+                <h2 class="section-title">Specialized <span class="gradient-text">Departments</span></h2>
+                <p class="section-desc">Our hospital is organized into specialized departments, each led by experienced heads and equipped with the latest medical technology.</p>
+            </div>
+            <div class="dept-grid">
+                <div class="dept-card" data-anim="up">
+                    <div class="dept-number">01</div>
+                    <div class="dept-icon">🫀</div>
+                    <h3>Cardiology</h3>
+                    <p>Heart disease diagnosis, treatment, and cardiac rehabilitation.</p>
+                    <div class="dept-meta">
+                        <span>12 Doctors</span>
+                        <span>•</span>
+                        <span>ICU: 30 Beds</span>
+                    </div>
+                </div>
+                <div class="dept-card" data-anim="up">
+                    <div class="dept-number">02</div>
+                    <div class="dept-icon">🧠</div>
+                    <h3>Neurology</h3>
+                    <p>Brain, spine, and nervous system disorders treatment.</p>
+                    <div class="dept-meta">
+                        <span>8 Doctors</span>
+                        <span>•</span>
+                        <span>ICU: 20 Beds</span>
+                    </div>
+                </div>
+                <div class="dept-card" data-anim="up">
+                    <div class="dept-number">03</div>
+                    <div class="dept-icon">🦴</div>
+                    <h3>Orthopedics</h3>
+                    <p>Bone, joint, and musculoskeletal system care and surgery.</p>
+                    <div class="dept-meta">
+                        <span>10 Doctors</span>
+                        <span>•</span>
+                        <span>OT: 5 Rooms</span>
+                    </div>
+                </div>
+                <div class="dept-card" data-anim="up">
+                    <div class="dept-number">04</div>
+                    <div class="dept-icon">🔬</div>
+                    <h3>Oncology</h3>
+                    <p>Cancer screening, chemotherapy, radiation, and surgical oncology.</p>
+                    <div class="dept-meta">
+                        <span>9 Doctors</span>
+                        <span>•</span>
+                        <span>Chemo: 15 Chairs</span>
+                    </div>
+                </div>
+                <div class="dept-card" data-anim="up">
+                    <div class="dept-number">05</div>
+                    <div class="dept-icon">👶</div>
+                    <h3>Pediatrics</h3>
+                    <p>Specialized healthcare for infants, children, and adolescents.</p>
+                    <div class="dept-meta">
+                        <span>11 Doctors</span>
+                        <span>•</span>
+                        <span>NICU: 25 Beds</span>
+                    </div>
+                </div>
+                <div class="dept-card" data-anim="up">
+                    <div class="dept-number">06</div>
+                    <div class="dept-icon">🏥</div>
+                    <h3>General Surgery</h3>
+                    <p>Minimally invasive and open surgical procedures for all conditions.</p>
+                    <div class="dept-meta">
+                        <span>14 Doctors</span>
+                        <span>•</span>
+                        <span>OT: 8 Rooms</span>
+                    </div>
+                </div>
+                <div class="dept-card" data-anim="up">
+                    <div class="dept-number">07</div>
+                    <div class="dept-icon">👁️</div>
+                    <h3>Ophthalmology</h3>
+                    <p>Eye care services including LASIK, cataract surgery, and retina treatment.</p>
+                    <div class="dept-meta">
+                        <span>6 Doctors</span>
+                        <span>•</span>
+                        <span>Laser Suite</span>
+                    </div>
+                </div>
+                <div class="dept-card" data-anim="up">
+                    <div class="dept-number">08</div>
+                    <div class="dept-icon">🫁</div>
+                    <h3>Pulmonology</h3>
+                    <p>Respiratory disease diagnosis, treatment, and ventilator management.</p>
+                    <div class="dept-meta">
+                        <span>7 Doctors</span>
+                        <span>•</span>
+                        <span>ICU: 18 Beds</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DOCTORS ==================== -->
+    <section id="doctors" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Team</span>
+                <h2 class="section-title">Meet Our <span class="gradient-text">Expert Doctors</span></h2>
+                <p class="section-desc">Highly qualified and experienced specialists dedicated to providing the best medical care.</p>
+            </div>
+            <div class="doctors-grid">
+                <div class="doctor-card" data-anim="up">
+                    <div class="doc-avatar" style="--bg: linear-gradient(135deg, #06b6d4, #3b82f6)">
+                        <span>SJ</span>
+                    </div>
+                    <div class="doc-info">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <span class="doc-specialty">Cardiologist</span>
+                        <p class="doc-quals">MD, DM (Cardiology) — 18 yrs exp.</p>
+                        <div class="doc-rating">
+                            <span class="stars">★★★★★</span>
+                            <span>4.9 (320 reviews)</span>
+                        </div>
+                        <div class="doc-tags">
+                            <span>Heart Surgery</span>
+                            <span>Angioplasty</span>
+                        </div>
+                        <a href="#appointments" class="btn btn-sm">Book Consultation</a>
+                    </div>
+                </div>
+                <div class="doctor-card" data-anim="up">
+                    <div class="doc-avatar" style="--bg: linear-gradient(135deg, #8b5cf6, #ec4899)">
+                        <span>RK</span>
+                    </div>
+                    <div class="doc-info">
+                        <h3>Dr. Rajesh Kumar</h3>
+                        <span class="doc-specialty">Neurologist</span>
+                        <p class="doc-quals">MD, DM (Neurology) — 22 yrs exp.</p>
+                        <div class="doc-rating">
+                            <span class="stars">★★★★★</span>
+                            <span>4.8 (275 reviews)</span>
+                        </div>
+                        <div class="doc-tags">
+                            <span>Brain Surgery</span>
+                            <span>Stroke Care</span>
+                        </div>
+                        <a href="#appointments" class="btn btn-sm">Book Consultation</a>
+                    </div>
+                </div>
+                <div class="doctor-card" data-anim="up">
+                    <div class="doc-avatar" style="--bg: linear-gradient(135deg, #10b981, #06b6d4)">
+                        <span>PA</span>
+                    </div>
+                    <div class="doc-info">
+                        <h3>Dr. Priya Agarwal</h3>
+                        <span class="doc-specialty">Orthopedic Surgeon</span>
+                        <p class="doc-quals">MS (Ortho), Fellowship — 15 yrs exp.</p>
+                        <div class="doc-rating">
+                            <span class="stars">★★★★★</span>
+                            <span>4.9 (410 reviews)</span>
+                        </div>
+                        <div class="doc-tags">
+                            <span>Joint Replacement</span>
+                            <span>Spine Surgery</span>
+                        </div>
+                        <a href="#appointments" class="btn btn-sm">Book Consultation</a>
+                    </div>
+                </div>
+                <div class="doctor-card" data-anim="up">
+                    <div class="doc-avatar" style="--bg: linear-gradient(135deg, #f97316, #ef4444)">
+                        <span>AM</span>
+                    </div>
+                    <div class="doc-info">
+                        <h3>Dr. Anita Mehta</h3>
+                        <span class="doc-specialty">Pediatrician</span>
+                        <p class="doc-quals">MD (Pediatrics), DCH — 20 yrs exp.</p>
+                        <div class="doc-rating">
+                            <span class="stars">★★★★★</span>
+                            <span>5.0 (500 reviews)</span>
+                        </div>
+                        <div class="doc-tags">
+                            <span>Neonatology</span>
+                            <span>Vaccination</span>
+                        </div>
+                        <a href="#appointments" class="btn btn-sm">Book Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PATIENT PORTAL ==================== -->
+    <section id="patient-portal" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Patient Portal</span>
+                <h2 class="section-title">Your Health, <span class="gradient-text">At Your Fingertips</span></h2>
+                <p class="section-desc">Access your complete health information securely online — medical records, prescriptions, lab reports, and billing.</p>
+            </div>
+            <div class="portal-layout">
+                <div class="portal-features">
+                    <div class="portal-feature" data-anim="up">
+                        <div class="pf-icon" style="--c:#06b6d4">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                        </div>
+                        <div>
+                            <h4>Electronic Health Records (EHR)</h4>
+                            <p>View your complete medical history, diagnoses, medications, immunizations, and treatment plans in one secure place.</p>
+                        </div>
+                    </div>
+                    <div class="portal-feature" data-anim="up">
+                        <div class="pf-icon" style="--c:#8b5cf6">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
+                        </div>
+                        <div>
+                            <h4>Lab Reports & Diagnostics</h4>
+                            <p>Download lab test results, radiology images, and diagnostic reports online within 2 hours of completion.</p>
+                        </div>
+                    </div>
+                    <div class="portal-feature" data-anim="up">
+                        <div class="pf-icon" style="--c:#10b981">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+                        </div>
+                        <div>
+                            <h4>Prescription Management</h4>
+                            <p>View active prescriptions, request refills, set medication reminders, and track your medication schedule.</p>
+                        </div>
+                    </div>
+                    <div class="portal-feature" data-anim="up">
+                        <div class="pf-icon" style="--c:#f97316">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        </div>
+                        <div>
+                            <h4>Billing & Insurance</h4>
+                            <p>View itemized bills, make online payments, check insurance claims status, and download payment receipts.</p>
+                        </div>
+                    </div>
+                    <div class="portal-feature" data-anim="up">
+                        <div class="pf-icon" style="--c:#ec4899">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        </div>
+                        <div>
+                            <h4>Telemedicine</h4>
+                            <p>Consult with your doctor via secure video call from anywhere. Get prescriptions and follow-ups online.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="portal-preview" data-anim="up">
+                    <div class="portal-mockup">
+                        <div class="mockup-header">
+                            <div class="mockup-dots"><span></span><span></span><span></span></div>
+                            <div class="mockup-url">medcareplus.health/patient-portal</div>
+                        </div>
+                        <div class="mockup-body">
+                            <div class="mock-sidebar">
+                                <div class="mock-nav-item active">📊 Dashboard</div>
+                                <div class="mock-nav-item">📋 Records</div>
+                                <div class="mock-nav-item">💊 Prescriptions</div>
+                                <div class="mock-nav-item">🧪 Lab Reports</div>
+                                <div class="mock-nav-item">📅 Appointments</div>
+                                <div class="mock-nav-item">💳 Billing</div>
+                                <div class="mock-nav-item">💬 Messages</div>
+                            </div>
+                            <div class="mock-content">
+                                <div class="mock-welcome">Welcome back, <strong>John!</strong></div>
+                                <div class="mock-stats">
+                                    <div class="mock-stat">
+                                        <span class="ms-num">3</span>
+                                        <span>Upcoming</span>
+                                    </div>
+                                    <div class="mock-stat">
+                                        <span class="ms-num">12</span>
+                                        <span>Records</span>
+                                    </div>
+                                    <div class="mock-stat">
+                                        <span class="ms-num">2</span>
+                                        <span>Reports</span>
+                                    </div>
+                                </div>
+                                <div class="mock-chart">
+                                    <div class="mc-label">Blood Pressure History</div>
+                                    <div class="mc-bars">
+                                        <div class="mc-bar" style="--h:65%"><span>Jan</span></div>
+                                        <div class="mc-bar" style="--h:72%"><span>Feb</span></div>
+                                        <div class="mc-bar" style="--h:58%"><span>Mar</span></div>
+                                        <div class="mc-bar" style="--h:68%"><span>Apr</span></div>
+                                        <div class="mc-bar" style="--h:55%"><span>May</span></div>
+                                        <div class="mc-bar" style="--h:62%"><span>Jun</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== APPOINTMENT BOOKING ==================== -->
+    <section id="appointments" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Book Now</span>
+                <h2 class="section-title">Schedule Your <span class="gradient-text">Appointment</span></h2>
+                <p class="section-desc">Book an appointment in under 2 minutes. Choose your department, doctor, and preferred time slot.</p>
+            </div>
+            <div class="appointment-layout">
+                <form class="appt-form glass-card" id="appointmentForm" data-anim="up">
+                    <div class="form-group">
+                        <label for="patientName">Full Name</label>
+                        <input type="text" id="patientName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="patientEmail">Email Address</label>
+                            <input type="email" id="patientEmail" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="patientPhone">Phone Number</label>
+                            <input type="tel" id="patientPhone" placeholder="+91 98765 43210" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <select id="department" required>
+                                <option value="">Select Department</option>
+                                <option>Cardiology</option>
+                                <option>Neurology</option>
+                                <option>Orthopedics</option>
+                                <option>Oncology</option>
+                                <option>Pediatrics</option>
+                                <option>General Surgery</option>
+                                <option>Ophthalmology</option>
+                                <option>Pulmonology</option>
+                                <option>General Medicine</option>
+                                <option>Dermatology</option>
+                                <option>ENT</option>
+                                <option>Gynecology</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="doctor">Preferred Doctor</label>
+                            <select id="doctor">
+                                <option value="">Any Available Doctor</option>
+                                <option>Dr. Sarah Johnson</option>
+                                <option>Dr. Rajesh Kumar</option>
+                                <option>Dr. Priya Agarwal</option>
+                                <option>Dr. Anita Mehta</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="apptDate">Preferred Date</label>
+                            <input type="date" id="apptDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="apptTime">Preferred Time</label>
+                            <select id="apptTime" required>
+                                <option value="">Select Time Slot</option>
+                                <option>09:00 AM - 09:30 AM</option>
+                                <option>09:30 AM - 10:00 AM</option>
+                                <option>10:00 AM - 10:30 AM</option>
+                                <option>10:30 AM - 11:00 AM</option>
+                                <option>11:00 AM - 11:30 AM</option>
+                                <option>11:30 AM - 12:00 PM</option>
+                                <option>02:00 PM - 02:30 PM</option>
+                                <option>02:30 PM - 03:00 PM</option>
+                                <option>03:00 PM - 03:30 PM</option>
+                                <option>03:30 PM - 04:00 PM</option>
+                                <option>04:00 PM - 04:30 PM</option>
+                                <option>04:30 PM - 05:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="apptType">Appointment Type</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="apptType" value="in-person" checked>
+                                <span class="radio-custom"></span>
+                                🏥 In-Person Visit
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="apptType" value="telemedicine">
+                                <span class="radio-custom"></span>
+                                💻 Telemedicine
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="symptoms">Symptoms / Reason for Visit</label>
+                        <textarea id="symptoms" rows="3" placeholder="Briefly describe your symptoms or reason for the appointment..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" id="submitAppt">
+                        <span>Confirm Appointment</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                </form>
+                <div class="appt-info-panel" data-anim="up">
+                    <div class="info-card">
+                        <div class="info-icon">🕐</div>
+                        <h4>Working Hours</h4>
+                        <div class="hours-list">
+                            <div class="hours-row">
+                                <span>Monday — Friday</span>
+                                <strong>8:00 AM — 8:00 PM</strong>
+                            </div>
+                            <div class="hours-row">
+                                <span>Saturday</span>
+                                <strong>9:00 AM — 5:00 PM</strong>
+                            </div>
+                            <div class="hours-row">
+                                <span>Sunday</span>
+                                <strong>10:00 AM — 2:00 PM</strong>
+                            </div>
+                            <div class="hours-row emergency">
+                                <span>🚨 Emergency</span>
+                                <strong>24/7 Available</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">📞</div>
+                        <h4>Quick Contact</h4>
+                        <div class="contact-lines">
+                            <div class="contact-line">
+                                <span>Emergency</span>
+                                <a href="tel:108">108</a>
+                            </div>
+                            <div class="contact-line">
+                                <span>Reception</span>
+                                <a href="tel:+911234567890">+91 123-456-7890</a>
+                            </div>
+                            <div class="contact-line">
+                                <span>Email</span>
+                                <a href="mailto:care@medcareplus.com">care@medcareplus.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🩺</div>
+                        <h4>Insurance Partners</h4>
+                        <div class="insurance-tags">
+                            <span>Star Health</span>
+                            <span>ICICI Lombard</span>
+                            <span>Max Bupa</span>
+                            <span>HDFC Ergo</span>
+                            <span>New India</span>
+                            <span>Bajaj Allianz</span>
+                            <span>CGHS</span>
+                            <span>ESI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS ==================== -->
+    <section class="section section-alt" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-title">What Patients <span class="gradient-text">Say About Us</span></h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-anim="up">
+                    <div class="testi-stars">★★★★★</div>
+                    <p class="testi-text">"The care I received at MedCare Plus was exceptional. Dr. Johnson's expertise in cardiology saved my life. The staff was compassionate and the facilities are world-class."</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar" style="--bg:#06b6d4">RS</div>
+                        <div>
+                            <strong>Ramesh Sharma</strong>
+                            <span>Cardiac Patient</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-anim="up">
+                    <div class="testi-stars">★★★★★</div>
+                    <p class="testi-text">"The patient portal is amazing! I can see all my lab reports, track my medications, and even video-call my doctor. Healthcare has truly gone digital here."</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar" style="--bg:#8b5cf6">SG</div>
+                        <div>
+                            <strong>Sneha Gupta</strong>
+                            <span>Regular Patient</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-anim="up">
+                    <div class="testi-stars">★★★★★</div>
+                    <p class="testi-text">"My daughter was admitted to the NICU and the pediatrics team was outstanding. Dr. Mehta gave us constant updates and the nurses were incredibly caring."</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar" style="--bg:#10b981">VP</div>
+                        <div>
+                            <strong>Vikram Patel</strong>
+                            <span>Parent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT / LOCATION ==================== -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Find Us</span>
+                <h2 class="section-title">Visit <span class="gradient-text">Our Hospital</span></h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card glass-card" data-anim="up">
+                    <div class="contact-icon">📍</div>
+                    <h4>Address</h4>
+                    <p>MedCare Plus Hospital<br>Plot No. 45, Health City Road<br>Hyderabad, Telangana 500032<br>India</p>
+                </div>
+                <div class="contact-card glass-card" data-anim="up">
+                    <div class="contact-icon">📞</div>
+                    <h4>Phone</h4>
+                    <p>Emergency: <strong>108</strong><br>Reception: +91 123-456-7890<br>Appointments: +91 987-654-3210<br>Toll Free: 1800-123-4567</p>
+                </div>
+                <div class="contact-card glass-card" data-anim="up">
+                    <div class="contact-icon">✉️</div>
+                    <h4>Email</h4>
+                    <p>General: care@medcareplus.com<br>Appointments: book@medcareplus.com<br>Careers: hr@medcareplus.com<br>Feedback: feedback@medcareplus.com</p>
+                </div>
+                <div class="contact-card glass-card" data-anim="up">
+                    <div class="contact-icon">🚗</div>
+                    <h4>Getting Here</h4>
+                    <p>Free parking available<br>Metro: Health City Station (200m)<br>Bus: Routes 45, 67, 89<br>Wheelchair accessible entrance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="nav-logo" style="margin-bottom: 16px;">
+                        <div class="logo-mark">
+                            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                                <rect x="2" y="2" width="28" height="28" rx="8" fill="url(#logoGrad2)"/>
+                                <path d="M16 8v16M8 16h16" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                <defs><linearGradient id="logoGrad2" x1="2" y1="2" x2="30" y2="30"><stop stop-color="#06b6d4"/><stop offset="1" stop-color="#3b82f6"/></linearGradient></defs>
+                            </svg>
+                        </div>
+                        <span class="logo-text">Med<span class="logo-accent">Care</span> Plus</span>
+                    </div>
+                    <p>Providing world-class healthcare services with compassion, innovation, and excellence since 2005.</p>
+                </div>
+                <div class="footer-links-grid">
+                    <div class="footer-col">
+                        <h5>Quick Links</h5>
+                        <a href="#services">Services</a>
+                        <a href="#departments">Departments</a>
+                        <a href="#doctors">Doctors</a>
+                        <a href="#appointments">Appointments</a>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Patient Care</h5>
+                        <a href="#patient-portal">Patient Portal</a>
+                        <a href="#appointments">Book Online</a>
+                        <a href="#contact">Visitor Info</a>
+                        <a href="#testimonials">Testimonials</a>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Emergency</h5>
+                        <a href="tel:108">🚨 Dial 108</a>
+                        <a href="tel:+911234567890">📞 +91 123-456-7890</a>
+                        <a href="mailto:care@medcareplus.com">✉️ Email Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 MedCare Plus Hospital. All Rights Reserved.</p>
+                <p>Accredited by NABH & NABL | ISO 9001:2015 Certified</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal glass-card">
+            <div class="modal-icon">✅</div>
+            <h3>Appointment Confirmed!</h3>
+            <p>Your appointment has been successfully booked. You will receive a confirmation email and SMS shortly.</p>
+            <div class="modal-details" id="modalDetails"></div>
+            <button class="btn btn-primary" onclick="closeModal()">Done</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
