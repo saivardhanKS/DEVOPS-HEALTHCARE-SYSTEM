@@ -1,3 +1,4 @@
+```groovy
 pipeline {
     agent any
 
@@ -31,6 +32,21 @@ pipeline {
                     docker build -t ${IMAGE}:${BUILD_NUMBER} .
                     docker save ${IMAGE}:${BUILD_NUMBER} \
                       -o /tmp/${IMAGE}-${BUILD_NUMBER}.tar
+                '''
+            }
+        }
+
+        stage('Trivy Security Scan') {
+            steps {
+                sh '''
+                    trivy --config "" image \
+                      --scanners vuln \
+                      --ignorefile /dev/null \
+                      --severity HIGH,CRITICAL \
+                      --exit-code 1 \
+                      --format table \
+                      --output trivy-report-${BUILD_NUMBER}.txt \
+                      ${IMAGE}:${BUILD_NUMBER}
                 '''
             }
         }
@@ -124,7 +140,11 @@ pipeline {
         }
 
         always {
+            archiveArtifacts artifacts: 'trivy-report-*.txt',
+                             allowEmptyArchive: true
+
             sh 'rm -f /tmp/${IMAGE}-${BUILD_NUMBER}.tar'
         }
     }
 }
+```
