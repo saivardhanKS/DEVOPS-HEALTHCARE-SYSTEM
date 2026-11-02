@@ -1,5 +1,9 @@
 
 FROM nginx:alpine
+# Update Alpine packages to receive available security fixes
+RUN apk update && \
+    apk upgrade --no-cache && \
+    rm -rf /var/cache/apk/*
 
 # Create writable Nginx temporary directories for non-root execution
 RUN mkdir -p \
