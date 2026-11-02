@@ -22,7 +22,6 @@ pipeline {
                     test -f style.css
                     test -f script.js
                     test -f Dockerfile
-                    echo "Source validation successful"
                 '''
             }
         }
@@ -58,34 +57,43 @@ pipeline {
             }
         }
 
-        stage('Switch Traffic to Green') {
+        stage('Verify Green') {
+            steps {
+                sh '''
+                    kubectl get endpoints medcare-green-service -n ${NS}
+                    curl -fsS http://localhost/ > /dev/null
+                '''
+            }
+        }
+
+        stage('Switch Traffic') {
             steps {
                 sh '''
                     kubectl patch ingress medcare-ingress -n ${NS} \
                       --type=json \
                       -p='[{"op":"replace","path":"/spec/rules/0/http/paths/0/backend/service/name","value":"medcare-green-service"}]'
-                '''
-            }
-        }
-
-        stage('Verify Deployment') {
-            steps {
-                sh '''
-                    kubectl get deployments,services,pods -n ${NS}
-                    curl -f http://localhost/
-                    echo "Green deployment successful"
+                    
+                    curl -fsS http://localhost/ > /dev/null
                 '''
             }
         }
     }
 
     post {
-        success {
-            echo 'MedCare CI/CD pipeline completed successfully!'
-        }
         failure {
-            echo 'Pipeline failed. Check the Jenkins console output.'
+            echo 'Pipeline failed. Restoring traffic to blue.'
+            sh '''
+                kubectl patch ingress medcare-ingress -n ${NS} \
+                  --type=json \
+                  -p='[{"op":"replace","path":"/spec/rules/0/http/paths/0/backend/service/name","value":"medcare-service"}]' \
+                  || true
+            '''
         }
+
+        success {
+            echo 'MedCare CI/CD deployment completed successfully!'
+        }
+
         always {
             sh 'rm -f /tmp/${IMAGE}-${BUILD_NUMBER}.tar'
         }
