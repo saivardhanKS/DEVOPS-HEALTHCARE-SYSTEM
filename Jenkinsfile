@@ -3,10 +3,9 @@ pipeline {
     agent any
 
     environment {
-        APP = 'medcare-healthcare'
         NS = 'devsecops-healthcare'
-        KUBECONFIG = '/var/lib/jenkins/.kube/config'
         IMAGE = 'medcare-healthcare'
+        KUBECONFIG = '/var/lib/jenkins/.kube/config'
     }
 
     stages {
@@ -23,6 +22,7 @@ pipeline {
                     test -f style.css
                     test -f script.js
                     test -f Dockerfile
+                    echo "Source validation successful"
                 '''
             }
         }
@@ -50,7 +50,7 @@ pipeline {
             steps {
                 sh '''
                     kubectl set image deployment/medcare-green \
-                      *=${IMAGE}:${BUILD_NUMBER} -n ${NS}
+                      medcare=${IMAGE}:${BUILD_NUMBER} -n ${NS}
 
                     kubectl rollout status deployment/medcare-green \
                       -n ${NS} --timeout=180s
@@ -64,8 +64,6 @@ pipeline {
                     kubectl patch ingress medcare-ingress -n ${NS} \
                       --type=json \
                       -p='[{"op":"replace","path":"/spec/rules/0/http/paths/0/backend/service/name","value":"medcare-green-service"}]'
-
-                    kubectl get ingress medcare-ingress -n ${NS}
                 '''
             }
         }
@@ -75,6 +73,7 @@ pipeline {
                 sh '''
                     kubectl get deployments,services,pods -n ${NS}
                     curl -f http://localhost/
+                    echo "Green deployment successful"
                 '''
             }
         }
@@ -82,10 +81,10 @@ pipeline {
 
     post {
         success {
-            echo 'MedCare CI/CD and Green Deployment completed successfully!'
+            echo 'MedCare CI/CD pipeline completed successfully!'
         }
         failure {
-            echo 'Pipeline failed. Blue deployment remains available for recovery.'
+            echo 'Pipeline failed. Check the Jenkins console output.'
         }
         always {
             sh 'rm -f /tmp/${IMAGE}-${BUILD_NUMBER}.tar'
